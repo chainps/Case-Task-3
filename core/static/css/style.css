@@ -1,0 +1,184 @@
+/* Основные переменные и сброс */
+:root {
+    --primary-gradient: linear-gradient(165deg, #667eea 0%, hsl(270, 37%, 46%) 100%);
+    --button-gradient: linear-gradient(90deg, #9f0ed3 0%, #7e0d40 100%);
+    --error-gradient: linear-gradient(90deg, #f5576c 0%, #f093fb 100%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #2d3748;
+    --text-secondary: #718096;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: var(--primary-gradient);
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-main);
+}
+
+/* Карточка */
+.container {
+    perspective: 1000px;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90vw;
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out forwards;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Типографика */
+.title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Форма и инпуты */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #764ba2;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.1);
+}
+
+.form-input::placeholder {
+    color: #a0aec0;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-image: var(--button-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(221, 36, 118, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(221, 36, 118, 0.6);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid #e2e8f0;
+    margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+    background: rgba(0,0,0,0.03);
+    border-color: #cbd5e0;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+/* Ошибки */
+.error-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 4px solid #f5576c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.error-box p {
+    margin: 0;
+    color: #c53030;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Приветствие */
+.greeting {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: var(--button-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}

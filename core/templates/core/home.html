@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="card">
+        {% if greeting_name %}
+            <!-- Экран приветствия -->
+            <div class="success-animation">
+                <h1 class="greeting">Приветствую, {{ greeting_name }}!</h1>
+                <div class="confetti"></div>
+            </div>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Ввести другое имя</a>
+        {% else %}
+            <!-- Экран формы -->
+            <h1 class="title">Как вас зовут?</h1>
+            
+            <!-- Вывод ошибок формы -->
+            {% if form.errors %}
+                <div class="error-box">
+                    {% for error in form.name.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="post" class="form-wrapper">
+                {% csrf_token %}
+                <div class="input-group">
+                    {{ form.name }}
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span>Submit</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
